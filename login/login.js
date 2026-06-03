@@ -1,6 +1,7 @@
 const clientSignupBtn = document.getElementById('clientSignupBtn')
 const adminSignupBtn = document.getElementById('adminSignupBtn')
 
+
 clientSignupBtn.addEventListener('click', () => {
     const clientUserName = document.getElementById('clientUserName')
     const clientPassword = document.getElementById('clientPassword')
@@ -68,3 +69,10 @@ function adminLogin(adminUserName, adminPassword){
         console.log(error)
     })
 }
+
+const signUpHere = document.getElementById('signUpHere')
+
+signUpHere.addEventListener('click', () => {  
+    location.href = "/sign-up/sign-up.html"
+})
+

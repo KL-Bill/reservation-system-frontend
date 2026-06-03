@@ -24,3 +24,8 @@ function saveClient(id, name, username, password){
         console.log(error)
     })
 }
+const loginHere = document.getElementById('loginHere')
+
+loginHere.addEventListener('click', () => {  
+    location.href = "/login/login.html"
+})
