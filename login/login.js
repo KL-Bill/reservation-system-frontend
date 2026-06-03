@@ -6,6 +6,7 @@ clientSignupBtn.addEventListener('click', () => {
     const clientPassword = document.getElementById('clientPassword')
     clientLogin(clientUserName.value, clientPassword.value)
 })
+
 adminSignupBtn.addEventListener('click', () => {
     const adminUserName = document.getElementById('adminUserName')
     const adminPassword = document.getElementById('adminPassword')
@@ -15,26 +16,53 @@ adminSignupBtn.addEventListener('click', () => {
 
 
 function clientLogin(clientUserName, clientPassword){
+    if(clientUserName == "" || clientPassword == ""){
+        alert("Input UserName or Password")
+
+        return
+    }
+
     axios.post(`http://localhost:3000/client-login`, {
         username: clientUserName,
         password: clientPassword
     })
     .then((response) => {
         console.log(response.data)
+
+        if(Boolean(response.data.success)){
+            location.href = "/client-dashboard/client-dashboard.html"
+        } else {
+            alert("Wrong UserName or Password")
+        }
+
     })
     .catch((error) => {
         console.log(error)
+
     })
 }
 
 
 function adminLogin(adminUserName, adminPassword){
+
+    if(adminUserName == "" || adminPassword == ""){
+        alert("Input UserName or Password")
+
+        return
+    }
+
     axios.post(`http://localhost:3000/admin-login`, {
         username: adminUserName,
         password: adminPassword
     })
     .then((response) => {
         console.log(response.data)
+
+        if(Boolean(response.data.success)){
+            location.href = "/admin-dashboard/admin-dashboard.html"
+        } else {
+            alert("Wrong UserName or Password")
+        }
     })
     .catch((error) => {
         console.log(error)
