@@ -1,6 +1,7 @@
 const clientSignupBtn = document.getElementById('clientSignupBtn')
 const adminSignupBtn = document.getElementById('adminSignupBtn')
 
+
 clientSignupBtn.addEventListener('click', () => {
     const clientUserName = document.getElementById('clientUserName')
     const clientPassword = document.getElementById('clientPassword')
@@ -25,6 +26,9 @@ function clientLogin(clientUserName, clientPassword){
     axios.post(`http://localhost:3000/client-login`, {
         username: clientUserName,
         password: clientPassword
+    },
+    {
+        withCredentials: true
     })
     .then((response) => {
         console.log(response.data)
@@ -54,6 +58,9 @@ function adminLogin(adminUserName, adminPassword){
     axios.post(`http://localhost:3000/admin-login`, {
         username: adminUserName,
         password: adminPassword
+    },
+    {
+        withCredentials: true
     })
     .then((response) => {
         console.log(response.data)
@@ -68,3 +75,10 @@ function adminLogin(adminUserName, adminPassword){
         console.log(error)
     })
 }
+
+const signUpHere = document.getElementById('signUpHere')
+
+signUpHere.addEventListener('click', () => {  
+    location.href = "/sign-up/sign-up.html"
+})
+
