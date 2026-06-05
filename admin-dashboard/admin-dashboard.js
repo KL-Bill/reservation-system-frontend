@@ -1,5 +1,6 @@
 const logOutBtn = document.getElementById("logOutBtn")
 const p = document.getElementById("h2")
+const count = document.getElementById('count')
 
 
 logOutBtn.addEventListener('click', () => {
@@ -40,5 +41,16 @@ axios.get(`http://localhost:3000/event/get-all-events`)
 
 })
 .catch((error) => {
+    console.log(error)
+})
+
+axios.get(`http://localhost:3000/event/get-events-count`)
+.then(function (response) {
+    console.log(response)
+
+    count.innerHTML = response.data
+    
+})
+.catch(function (error){
     console.log(error)
 })
