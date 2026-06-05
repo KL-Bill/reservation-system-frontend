@@ -18,14 +18,10 @@ function saveClient(id, name, username, password){
     })
     .then(function (response) {
         alert(response.data.message)
+        window.location.href = "/login/login.html"
 
     })
     .catch(function (error) {
         console.log(error)
     })
 }
-const loginHere = document.getElementById('loginHere')
-
-loginHere.addEventListener('click', () => {  
-    location.href = "/login/login.html"
-})
