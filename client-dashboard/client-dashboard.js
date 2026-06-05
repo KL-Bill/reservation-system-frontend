@@ -12,5 +12,11 @@ logOutBtn.addEventListener('click', () => {
             location.href = '/login/login.html'
          })
      }
-
+   
+})
+axios.get(`http://localhost:3000/user/get-all-users`)
+.then((response) => {
+    console.log(response.data)})
+.catch((error) => {
+    console.log(error)
 })
