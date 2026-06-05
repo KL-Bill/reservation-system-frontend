@@ -1,4 +1,5 @@
 const logOutBtn = document.getElementById("logOutBtn")
+const h2 = document.getElementById('h2')
 
 
 logOutBtn.addEventListener('click', () => {
@@ -13,4 +14,12 @@ logOutBtn.addEventListener('click', () => {
          })
      }
 
+})
+
+axios.get(`http://localhost:3000/client/get-client`)
+.then ((response) => {
+    h2.innerHTML = response.data.name
+})
+.catch ((error) => {
+    console.log(error)
 })
